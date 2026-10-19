@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi - Aldi Group Company</title>
+    <style>
+        /* Reset Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow: hidden; /* Mencegah scroll */
+        }
+
+        /* Container Utama - Background Matahari Terbenam */
+        .main-container {
+            width: 100%;
+            height: 100%;
+            /* Background pemandangan alam (mirip referensi) */
+            background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Overlay Gelap tipis agar teks navigasi terbaca jelas */
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        /* --- HEADER / NAVIGASI --- */
+        .navbar {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            padding: 25px 40px;
+            color: white;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Logo Aldi Group */
+        .logo {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 22px;
+            margin-right: 50px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            font-size: 10px;
+            letter-spacing: 4px;
+            margin-top: 4px;
+            font-weight: 300;
+            color: #f1c40f; /* Aksen warna emas */
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            opacity: 1;
+            color: #f1c40f; /* Warna hover */
+        }
+
+        /* Icon kecil di navigasi */
+        .icon {
+            color: #f1c40f; /* Warna kuning emas */
+            font-size: 16px;
+        }
+
+        /* --- KONTEN UTAMA (SCAN JPG) --- */
+        .content-area {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+            padding-bottom: 40px;
+        }
+
+        .scan-container {
+            background: transparent;
+            padding: 10px;
+            border-radius: 12px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .scan-image {
+            max-height: 55vh; /* Menyesuaikan tinggi layar */
+            max-width: 80vw;
+            object-fit: contain;
+            border-radius: 10px;
+            /* Efek bayangan agar gambar scan terlihat jelas */
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
+            display: block;
+            background-color: white; /* Cadangan jika gambar transparan */
+        }
+
+        /* --- FOOTER / DOCK (Bawah) --- */
+        .dock {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 8px;
+        }
+
+        .dock-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 11px;
+            font-family: sans-serif;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+                justify-content: center;
+            }
+            .nav-items {
+                display: none; /* Sembunyikan menu di HP agar bersih */
+            }
+            .logo {
+                margin-right: 0;
+                font-size: 18px;
+                text-align: center;
+            }
+            .scan-image {
+                max-width: 90vw;
+                max-height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Header Navigasi -->
+        <div class="navbar">
+            <div class="logo">
+                ALDI GROUP
+                <span>COMPANY</span>
+            </div>
+            <!-- Menu Navigasi -->
+            <div class="nav-items">
+                <div class="nav-item"><span class="icon">🏢</span> About Us</div>
+                <div class="nav-item"><span class="icon">🤝</span> Partnership</div>
+                <div class="nav-item"><span class="icon">💼</span> Services</div>
+                <div class="nav-item"><span class="icon">❤️</span> Donasi Sukarela</div>
+            </div>
+        </div>
+
+        <!-- Area Scan -->
+        <div class="content-area">
+            <div class="scan-container">
+                <!-- PENTING: Ganti 'scan.jpg' dengan file scan Anda -->
+                <img src="scan.jpg" alt="Scan Donasi Aldi Group" class="scan-image">
+            </div>
+        </div>
+
+        <!-- Footer Dock -->
+        <div class="dock">
+            <div class="dock-text">Aldi Group Company &copy; 2023</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
